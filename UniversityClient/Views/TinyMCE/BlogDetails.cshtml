@@ -1,0 +1,50 @@
+﻿@model UniversityClient.Models.BlogModel
+
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<h2>BlogDetails</h2>
+
+<div>
+    <h4>ExampleClass</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Model.Body))
+            @*@Server.HtmlDecode(Model.Body)*@
+            @*@Html.DisplayFor(model => model.Body)*@
+        </dd>
+
+    </dl>
+</div>
+

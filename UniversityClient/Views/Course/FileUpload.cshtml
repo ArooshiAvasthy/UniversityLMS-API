@@ -1,0 +1,34 @@
+﻿@model UniversityClient.Models.EmpModel
+@{
+    ViewBag.Title = "FileUpload";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<div style="font-family:PacificRegular">
+    @using (Html.BeginForm("FileUpload", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple" })
+                    @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <br /><br /><br />
+                    <input type="submit" value="Upload" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

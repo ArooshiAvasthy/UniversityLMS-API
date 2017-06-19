@@ -1,0 +1,178 @@
+﻿@*<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">*@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Maximus4T by 4Templates</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type="text/css" />
+
+    <link href="~/Maximus4T/Maximus4T/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Maximus4T/Maximus4T/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="~/Maximus4T/Maximus4T/jquery.dropotron-1.0.js"></script>
+    <script type="text/javascript" src="~/Maximus4T/Maximus4T/init.js"></script>
+</head>
+<body>
+    <div id="header-wrapper">
+        <div id="header">
+                <div id="logo">
+                    <h1><a href="#">University</a></h1>
+                    <p>Where Learning Begins..........</p>
+                </div>
+            </div>
+      </div>
+ 
+    <div id="menu-wrapper">
+        <div id="menu-content">
+            <ul id="menu">
+                <li class="first"><a href="@Url.Action("Index", "Home")" accesskey=" 1" =1" title=""><span>Home</span></a></li>
+                <li><a href="@Url.Action("AllCourses", "Course")" accesskey="2" title=""><span>Courses Available</span></a></li>
+                <li><a href="@Url.Action("BlogPageTopFive", "TinyMCE")" accesskey="3" title=""><span>Student Blog</span></a></li>
+                <li><a href="@Url.Action("GuestLectureVideos", "Video")" accesskey="4" title=""><span>Guest Lectures</span></a></li>
+            </ul>
+        </div>
+
+        @*<div id="search">*@
+        <div>
+            <div id="Test" style="padding-left: 800px; padding-top:20px;font-family: PacificRegular;">
+
+                @if (@Session["UserName"] == null)
+                {
+                    <a href="@Url.Action("SignUp", "Login")" style="color:white">Login</a>
+                }
+                else if (Session["Login"] == "Success")
+                {
+                    <h4 style="color: white; font-family: PacificRegular;padding-top:0px">
+                        Hi, @Session["Name"] &nbsp;
+                        <a href="@Url.Action("Logout", "Login")" style="color:white">Sign Out</a>
+                    </h4>
+
+                }
+                else
+                {
+                    <a href="@Url.Action("SignUp", "Login")" style="color:white">Login</a>
+
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @*Slider*@
+
+    <div id="banner-wrapper">
+        <div id="banner">
+            <div class="image"><a href="#"><img src="/Maximus4T/Maximus4T/images/pics02.jpg" width="900" height="257" alt="" /></a></div>
+            <div class="border"></div>
+        </div>
+    </div>
+
+    @*<div id="banner-wrapper">
+        <div id="banner">
+            <div class="image">
+                <div id ="sliderImages">
+                    <ul>
+                        <li><a href="#"><img src="/Maximus4T/Maximus4T/images/pics02.jpg" alt="" /></a></li>
+                        <li><a href="#"><img src="/Maximus4T/Maximus4T/images/pics01.jpg" alt="" /></a></li></ul>
+                </div>
+            </div>
+            <div class="border"></div>
+        </div>
+    </div>*@
+
+        <div id="page">
+            <div class="bgtop"></div>
+            <div class="content-bg">
+                <div style="padding-left:50px">
+                    @RenderBody()
+                </div>
+                <div id="sidebar">
+                    <div>
+                        <h2 class="title">About Maximus4T</h2>
+                        <p>Mauris consectetur magna eu enim sagittis et bibendum lacus imperdiet. Maecenas semper massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                    <div>
+                        <h2 class="title">Student LMS</h2>
+                        <ul>
+                            <li class="first"><a href="@Url.Action("AllCourses", "Course")">Courses</a></li>
+                            <li><a href="@Url.Action("BlogPageTopFive", "TinyMCE")">Student Blogs</a></li>
+                            <li><a href="@Url.Action("AllCourseVideos", "Video")">Video Tutorials</a></li>
+                            <li><a href="@Url.Action("ImageGallery2", "Image")">Image Gallery</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="title">Something Else</h2>
+                        <p>Mauris consectetur magna eu enim sagittis et bibendum lacus imperdiet. Maecenas semper massa amet et odio mauris dui, id luctus amet ligula.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bgbtm"></div>
+        </div>
+        <div id="footer-content">
+            <div class="bgtop"></div>
+            <div class="content-bg">
+                <div id="column1">
+
+                    <div class="box1" style="height:200px">
+                        <div id="container" style="width:100%;">
+                            <div class="fb-like-box" data-href="https://www.facebook.com/IamSRK/" data-width="292" data-show-faces="true" data-stream="true" data-header="true"></div>
+                        </div>
+
+                        <div id="fb-root"></div>
+                        <script>
+                            /*
+                             * REMEMBER TO CHANGE TO YOUR APP ID AND CHANGE data-href TO SUIT YOU
+                             */
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=743950352476219";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));
+                            $(window).bind("load resize", function () {
+                                var container_width = $('#container').width();
+                                $('#container').html('<div class="fb-like-box" ' +
+                                'data-href="https://www.facebook.com/IamSRK/"' +
+                                ' data-width="' + container_width + '" data-height="730" data-show-faces="false" ' +
+                                'data-stream="true" data-header="true"></div>');
+                                FB.XFBML.parse();
+                            });
+                        </script>
+                    </div>
+
+
+                    <div class="box2" style="height:200px">
+                        <div id='eli-w-root' style='width:300px;' class='t1'></div>
+                        <script>
+                            (function () {
+                                var es = document.createElement('script'); es.async = true; es.id = 'init-script';
+                                es.src = '//elearningindustry.com/widgets/js/widget-feed.js?s=1&j=1&v=14';
+                                document.getElementById('eli-w-root').appendChild(es);
+                            }());
+                        </script>
+                    </div>
+
+                </div>
+                <div id="column2">
+                    <div class="box3" style="height:200px">
+                        <iframe frameborder="0" scrolling="no" width="250" height="350" src="http://www.collegexpress.com/widgets/ask_the_experts/350x300/"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bgbtm"></div>
+        </div>
+        <div id="footer">
+
+        </div>
+     </body>
+
+</html>
+

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UniversityClient.Models.FileModel>
+
+@{
+    ViewBag.Title = "CoursePage";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+<link href="~/StyleSheet1.css" rel="stylesheet" />
+
+    <h2>Tutorials</h2>
+
+<table class="table">
+    <tr>
+        <th style="font-family:PacificRegular">
+          
+        </th>
+        <th></th>
+        <th class="col-md-2"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="font-family:PacificRegular">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td><br/><br /></td>
+        <td style="font-family:PacificRegular">
+            @Html.ActionLink("Download", "DownLoadFile", new { id = item.Id })
+
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<br /><br />
+@Html.ActionLink("File Upload","FileUpload" ,"Course")
+<br /><br />
+@Html.ActionLink("Video Tutorials", "SpecificCourseVideos", "Video")

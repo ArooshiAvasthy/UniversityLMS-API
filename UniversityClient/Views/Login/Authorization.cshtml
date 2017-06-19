@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Authorization";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<h2 style="font-family:PacificRegular">Loading</h2>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script>
+    function getCORS(url, success) {
+        var xhr = new XMLHttpRequest();
+        if (!('withCredentials' in xhr)) xhr = new XDomainRequest();
+        xhr.open('GET', url);
+        xhr.setRequestHeader('Authorization', 'Basic @Session["UserName"].ToString():@Session["Password"].ToString()');
+        xhr.onload = success;
+        xhr.send();
+        return xhr;
+
+    }
+
+    getCORS('http://localhost:53496/api/loginapi/GetUser', function (request) {
+    var response = request.currentTarget.response || request.target.responseText;
+
+   var val1 = response.toString();
+
+   if (val1.replace(/['"]+/g, '').localeCompare("true") == 0) {
+
+
+   $.ajax({
+       url: "/Login/SetSession",
+       type: "POST",
+       data: "{}",
+       contentType: 'application/json; charset=utf-8',
+       dataType: "json"
+
+   });
+            window.location.href = "/Home/Index";
+    }
+
+    else {
+        alert("Invalid Credentials");
+        window.location.href = "/Home/Index";
+    }
+
+
+ });
+</script>

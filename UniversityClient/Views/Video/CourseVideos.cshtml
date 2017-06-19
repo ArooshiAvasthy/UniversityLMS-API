@@ -1,0 +1,35 @@
+﻿@model IEnumerable<UniversityClient.Models.VideoModel>
+
+@{
+    ViewBag.Title = "CourseVideos";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+<h2>Course Videos</h2>
+
+<div style="padding-left: 50px;width:650px">
+    <table style="height: 300px; width: 650px; font-family: PacificoRegular">
+        @{var counter = 1; }
+        <tr style="padding-top: 20px">
+            @foreach (var item in Model)
+            {
+                <td style="height: 100px; width: 200px;">
+                   @Html.DisplayFor(model=>item.VideoName)
+                    <br /><br />
+                        <video controls="controls">
+                            <source src="@Url.Content(item.Path)" style="border-width: 8px; border-color: #fff #fff transparent transparent; background: #fff; -moz-border-radius: 5px 5px 5px 5px; border-radius: 5px 5px 5px 5px; display: block; height:150px; width:200px" type="video/mp4" />
+                        </video>                   
+                    <br />
+                    <a href="">Download</a>
+                    @Html.ActionLink("Download", "CourseVideoDownload", new { videopath = item.Path, title = item.VideoName })
+                </td>
+                <td><br /><br /></td>
+                if (counter % 3 == 0)
+                {
+                    @:</tr><tr><td><br /></td></tr><tr>
+                }
+                counter++;
+            }
+        </tr>
+    </table>
+</div>
